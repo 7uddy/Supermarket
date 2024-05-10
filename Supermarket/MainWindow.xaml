@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Supermarket"
         xmlns:vm="clr-namespace:Supermarket.MVVM.ViewModel"
         xmlns:view="clr-namespace:Supermarket.MVVM.View"
-        d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         mc:Ignorable="d"
         Title="Supermarket" 
         SizeToContent="Height"
