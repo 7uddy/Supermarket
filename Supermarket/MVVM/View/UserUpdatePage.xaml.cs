@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Supermarket.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for AdminView.xaml
+    /// Interaction logic for UserUpdatePage.xaml
     /// </summary>
-    public partial class AdminView : UserControl
+    public partial class UserUpdatePage : Window
     {
-        public AdminView()
+        public UserUpdatePage()
         {
             InitializeComponent();
         }
-
-       
     }
 }

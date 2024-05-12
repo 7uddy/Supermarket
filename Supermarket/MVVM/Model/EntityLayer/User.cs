@@ -29,7 +29,10 @@ namespace Supermarket.MVVM.Model
         private string userType;
         public string UserType
         {
-            get { return userType; }
+            get {
+                if (userType == "0") return "Admin";
+                else return "Employee";
+            }
             set { userType = value; }
         }
     }
