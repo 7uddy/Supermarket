@@ -1,4 +1,5 @@
-﻿using Supermarket.MVVM.ViewModel;
+﻿using Supermarket.MVVM.Model;
+using Supermarket.MVVM.ViewModel;
 using Supermarket.Stores;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,31 @@ namespace Supermarket
     public partial class App : Application
     {
         private readonly Navigation _navigation = new Navigation();
+        public static User _user;
         protected override void OnStartup(StartupEventArgs e)
         {
+            _navigation.CurrentViewModel = CreateLoginViewModel();
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(_navigation)
             };
             MainWindow.Show();
             base.OnStartup(e);
+        }
+
+        private LoginVM CreateLoginViewModel()
+        {
+            return new LoginVM(_navigation,CreateAdminViewModel,CreateCashierViewModel);
+        }
+
+        private AdminVM CreateAdminViewModel()
+        {
+            return new AdminVM();
+        }
+
+        private CashierVM CreateCashierViewModel()
+        {
+            return new CashierVM();
         }
     }
 }

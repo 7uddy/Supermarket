@@ -18,7 +18,7 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
             return userDAL.GetAllUsers();
         }
 
-        public bool Login(string username, string password)
+        public User Login(string username, string password)
         {
             return userDAL.Login(username, password);
         }

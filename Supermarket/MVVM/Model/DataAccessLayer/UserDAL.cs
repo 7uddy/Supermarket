@@ -40,7 +40,7 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
             }
         }
 
-        public bool Login(string username, string password)
+        public User Login(string username, string password)
         {
             SqlConnection connection = DALHelper.Connection;
             try
@@ -53,9 +53,17 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    return true;
+                    App._user=new User
+                    {
+                        Id = reader.GetInt32(0),
+                        Username = reader.GetString(1),
+                        Password = reader.GetString(2),
+                        UserType = reader.GetString(3)
+                    };
+                    return App._user;
+                    
                 }
-                return false;
+                return null;
             }
             finally
             {

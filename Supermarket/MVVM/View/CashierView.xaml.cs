@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Supermarket.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for UserView.xaml
+    /// Interaction logic for CashierView.xaml
     /// </summary>
-    public partial class UserView : UserControl
+    public partial class CashierView : UserControl
     {
-        public UserView()
+        public CashierView()
         {
             InitializeComponent();
         }

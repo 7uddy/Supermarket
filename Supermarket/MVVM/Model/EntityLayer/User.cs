@@ -32,6 +32,5 @@ namespace Supermarket.MVVM.Model
             get { return userType; }
             set { userType = value; }
         }
-
     }
 }
