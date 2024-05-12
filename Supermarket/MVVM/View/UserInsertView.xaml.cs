@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supermarket.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,15 @@ using System.Windows.Shapes;
 namespace Supermarket.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for UserUpdatePage.xaml
+    /// Interaction logic for UserInsertView.xaml
     /// </summary>
-    public partial class UserUpdatePage : Window
+    public partial class UserInsertView : Window
     {
-        public UserUpdatePage()
+        public UserInsertView(UserVM userViewModel)
         {
             InitializeComponent();
+            this.DataContext = userViewModel;
+            userViewModel.CloseAction = new Action(this.Close);
         }
     }
 }

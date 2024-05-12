@@ -83,14 +83,14 @@
     <Compile Include="MVVM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\UserInsertPage.xaml.cs">
-      <DependentUpon>UserInsertPage.xaml</DependentUpon>
+    <Compile Include="MVVM\View\UserInsertView.xaml.cs">
+      <DependentUpon>UserInsertView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\UserUpdatePage.xaml.cs">
-      <DependentUpon>UserUpdatePage.xaml</DependentUpon>
+    <Compile Include="MVVM\View\UserUpdateView.xaml.cs">
+      <DependentUpon>UserUpdateView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stores\Navigation.cs" />
     <Page Include="MainWindow.xaml">
@@ -119,7 +119,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\UserInsertPage.xaml">
+    <Page Include="MVVM\View\UserInsertView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\UserUpdatePage.xaml">
+    <Page Include="MVVM\View\UserUpdateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

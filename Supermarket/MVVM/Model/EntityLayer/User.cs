@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace Supermarket.MVVM.Model
         public string UserType
         {
             get {
-                if (userType == "0") return "Admin";
+                if (userType == "1") return "Admin";
                 else return "Employee";
             }
             set { userType = value; }

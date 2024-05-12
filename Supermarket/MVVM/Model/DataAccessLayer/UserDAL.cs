@@ -70,5 +70,60 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 connection.Close();
             }
         }
+        public void UpdateUser(int id,string username,string password,string usertype)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("UpdateUser", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@userType", usertype);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void DeleteUser(int id)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DeleteUser", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void InsertUser(string newUsername, string newPassword, string newUserType)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("InsertUser", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@username", newUsername);
+                cmd.Parameters.AddWithValue("@password", newPassword);
+                cmd.Parameters.AddWithValue("@userType", newUserType);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

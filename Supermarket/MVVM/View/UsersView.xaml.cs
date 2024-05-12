@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supermarket.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,19 +28,23 @@ namespace Supermarket.MVVM.View
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
-            UserInsertPage userInsertPage = new UserInsertPage();
+            var viewModel = (UserVM)DataContext;
+            UserInsertView userInsertPage = new UserInsertView(viewModel);
             userInsertPage.ShowDialog();
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            UserUpdatePage userUpdatePage = new UserUpdatePage();
-            userUpdatePage.ShowDialog();
+            var viewModel = (UserVM)DataContext;
+            UserUpdateView userUpdatePage = new UserUpdateView(viewModel);
+            userUpdatePage.Show();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var viewModel = (UserVM)DataContext;
+            UserInsertView userInsertView= new UserInsertView(viewModel);
+            userInsertView.Show();
         }
     }
 }
