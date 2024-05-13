@@ -12,10 +12,13 @@ namespace Supermarket.MVVM.ViewModel
     public class AdminVM:ViewModelBase
     {
         public ICommand NavigateToUser { get; set; }
+        public ICommand NavigateToProduct { get; set; }
 
-        public AdminVM(Navigation navigation,Func<UserVM> createUserVM)
+        public AdminVM(Navigation navigation,Func<UserVM> createUserVM,Func<ProductVM> createProductVM)
         {
             NavigateToUser = new NavigateCommand(navigation,createUserVM);
+            NavigateToProduct = new NavigateCommand(navigation,createProductVM);
         }
+
     }
 }

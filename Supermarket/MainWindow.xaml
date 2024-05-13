@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Supermarket"
         xmlns:vm="clr-namespace:Supermarket.MVVM.ViewModel"
         xmlns:view="clr-namespace:Supermarket.MVVM.View"
+        xmlns:productView="clr-namespace:Supermarket.MVVM.View.ProductsView"
         mc:Ignorable="d"
         Title="Supermarket" 
         Width="1200"
@@ -28,6 +28,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:UserVM}">
                 <view:UsersView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ProductVM}">
+                <productView:ProductsView/>
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
