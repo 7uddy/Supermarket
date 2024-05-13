@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View" xmlns:viewmodel="clr-namespace:Supermarket.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserVM}"
         mc:Ignorable="d"
-        Title="UserInsertView" Height="450" Width="800">
+        Title="UserInsertView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid Margin="150 50 150 50">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,7 +26,7 @@
                    FontSize="20" 
                    FontWeight="Bold" 
                    HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+            <TextBox Text="{Binding InsertUsername, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                  FontSize="15" 
                  FontWeight="Bold" 
                  Width="200"
@@ -36,7 +37,7 @@
            FontSize="20" 
            FontWeight="Bold" 
            HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+            <TextBox Text="{Binding InsertPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
          FontSize="15" 
          FontWeight="Bold" 
          Width="200"
@@ -47,7 +48,7 @@
                    FontSize="20" 
                    FontWeight="Bold" 
                    HorizontalAlignment="Left"/>
-            <ComboBox SelectedItem="{Binding NewUserType, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+            <ComboBox SelectedItem="{Binding InsertUserType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                       ItemsSource="{Binding UserTypes}"
                       FontSize="15" 
                       FontWeight="Bold" 

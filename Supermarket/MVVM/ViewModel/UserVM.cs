@@ -42,12 +42,6 @@ namespace Supermarket.MVVM.ViewModel
                     newPassword = _selectedUser.Password;
                     newUserType = _selectedUser.UserType;
                 }
-                else
-                {
-                    newUsername = "";
-                    newPassword = "";
-                    newUserType = "";
-                }
                 OnPropertyChanged(nameof(SelectedUser));
             }
         }
@@ -125,6 +119,38 @@ namespace Supermarket.MVVM.ViewModel
 
         private RelayCommand insertCommand;
 
+        private string _insertUsername;
+        public string InsertUsername
+        {
+            get => _insertUsername;
+            set
+            {
+                _insertUsername = value;
+                OnPropertyChanged(nameof(InsertUsername));
+            }
+        }
+        private string _insertPassword;
+        public string InsertPassword
+        {
+            get => _insertPassword;
+            set
+            {
+                _insertPassword = value;
+                OnPropertyChanged(nameof(InsertPassword));
+            }
+        }
+        private string _insertUserType;
+        public string InsertUserType
+        {
+            get => _insertUserType;
+            set
+            {
+                _insertUserType = value;
+                OnPropertyChanged(nameof(InsertUserType));
+            }
+        }
+
+
         public ICommand InsertCommand
         {
             get
@@ -140,7 +166,10 @@ namespace Supermarket.MVVM.ViewModel
 
         private void Insert()
         {
-            userBLL.InsertUser(newUsername, newPassword, newUserType);
+            userBLL.InsertUser(_insertUsername, _insertPassword, _insertUserType);
+            _insertUsername = "";
+            _insertPassword = "";
+            _insertUserType = "";
             _usersList = userBLL.GetAllUsers();
             OnPropertyChanged(nameof(UsersList));
             CloseAction?.Invoke();

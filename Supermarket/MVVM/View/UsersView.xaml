@@ -22,7 +22,7 @@
                         <DataGridTextColumn Header="Username" Binding="{Binding Path=Username}" />
                         <DataGridTextColumn Header="Password" Binding="{Binding Path=Password}" />
                         <DataGridTextColumn Header="Account Type" Binding="{Binding Path=UserType}" />
-                        <DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="Auto">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="Action" />
@@ -31,11 +31,14 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Content="Edit" Click="EditButton_Click" />
+                                        <Button Content="Edit" 
+                                                Click="EditButton_Click" 
+                                                Width="50"/>
                                         <Button Content="Delete" 
                                             Command="{Binding DataContext.DeleteUser, 
                                             RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                                            CommandParameter="{Binding}" />
+                                            CommandParameter="{Binding}"
+                                                Width="50"/>
 
                                     </StackPanel>
                                 </DataTemplate>
