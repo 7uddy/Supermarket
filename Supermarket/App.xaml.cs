@@ -38,7 +38,7 @@ namespace Supermarket
 
         private UserVM CreateUserViewModel()
         {
-            return new UserVM();
+            return new UserVM(_navigation,CreateAdminViewModel);
         }
 
         private CashierVM CreateCashierViewModel()

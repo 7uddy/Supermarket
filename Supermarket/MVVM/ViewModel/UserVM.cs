@@ -1,7 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Supermarket.Commands;
 using Supermarket.MVVM.Model;
 using Supermarket.MVVM.Model.BusinessLogicLayer;
 using Supermarket.MVVM.View;
+using Supermarket.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,8 +26,11 @@ namespace Supermarket.MVVM.ViewModel
             set => _usersList = value;
         }
 
-        public UserVM()
+        public ICommand NavigateToAdmin { get; set; }
+
+        public UserVM(Navigation navigation, Func<AdminVM> createAdminVM)
         {
+            NavigateToAdmin = new NavigateCommand(navigation,createAdminVM);
             _usersList = userBLL.GetAllUsers();
         }
 

@@ -83,13 +83,13 @@
     <Compile Include="MVVM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\UserInsertView.xaml.cs">
+    <Compile Include="MVVM\View\UsersView\UserInsertView.xaml.cs">
       <DependentUpon>UserInsertView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\UsersView.xaml.cs">
+    <Compile Include="MVVM\View\UsersView\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\UserUpdateView.xaml.cs">
+    <Compile Include="MVVM\View\UsersView\UserUpdateView.xaml.cs">
       <DependentUpon>UserUpdateView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stores\Navigation.cs" />
@@ -119,15 +119,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\UserInsertView.xaml">
+    <Page Include="MVVM\View\UsersView\UserInsertView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\UsersView.xaml">
+    <Page Include="MVVM\View\UsersView\UsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\UserUpdateView.xaml">
+    <Page Include="MVVM\View\UsersView\UserUpdateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +166,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\BackArrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

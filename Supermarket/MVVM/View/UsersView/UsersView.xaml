@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Supermarket.MVVM.View"
+             xmlns:local="clr-namespace:Supermarket.MVVM.View" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:viewmodel="clr-namespace:Supermarket.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -12,6 +12,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Left">
+            <Image Source="../../../Resources/BackArrow.png" 
+                   Stretch="Uniform" 
+                   Height="40"
+                   RenderOptions.BitmapScalingMode="HighQuality"
+                   Margin="20 20 20 20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding NavigateToAdmin}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Image>
+        </Grid>
         <Grid Grid.Row="1">
             <DockPanel>
                 <DataGrid x:Name="UsersDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" 
