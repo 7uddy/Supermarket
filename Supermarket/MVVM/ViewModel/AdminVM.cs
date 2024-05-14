@@ -14,10 +14,14 @@ namespace Supermarket.MVVM.ViewModel
         public ICommand NavigateToUser { get; set; }
         public ICommand NavigateToProduct { get; set; }
 
-        public AdminVM(Navigation navigation,Func<UserVM> createUserVM,Func<ProductVM> createProductVM)
+        public ICommand NavigateToCategory { get; set; }
+
+        public AdminVM(Navigation navigation,Func<UserVM> createUserVM,Func<ProductVM> createProductVM,
+            Func<ProductsCategoryVM>createProductsCategoryVM)
         {
             NavigateToUser = new NavigateCommand(navigation,createUserVM);
             NavigateToProduct = new NavigateCommand(navigation,createProductVM);
+            NavigateToCategory = new NavigateCommand(navigation,createProductsCategoryVM);
         }
 
     }

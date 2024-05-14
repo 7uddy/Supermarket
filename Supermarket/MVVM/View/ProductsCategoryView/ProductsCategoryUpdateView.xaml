@@ -1,0 +1,42 @@
+﻿<Window x:Class="Supermarket.MVVM.View.ProductsCategoryView.ProductsCategoryUpdateView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarket.MVVM.View.ProductsCategoryView" xmlns:viewmodel="clr-namespace:Supermarket.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ProductsCategoryVM}"
+        mc:Ignorable="d"
+        Title="ProductsCategoryUpdateView" Height="450" Width="800">
+    <Grid Margin="150 20 150 20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Product Category Update" 
+          FontSize="30" 
+          FontWeight="ExtraBold" 
+          HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20">
+            <TextBlock Text="Name" 
+          FontSize="20" 
+          FontWeight="Bold" 
+          HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding NewProductCategoryName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+        FontSize="15" 
+        FontWeight="Bold" 
+        Width="200"
+        HorizontalAlignment="Right"/>
+        </Grid>
+        
+        <Grid Grid.Row="2" Margin="20">
+            <Button Content="Update" 
+      Command="{Binding UpdateCommand}" 
+      FontSize="20" 
+      FontWeight="Bold" 
+      Width="100"
+      HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>

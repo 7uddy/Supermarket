@@ -72,10 +72,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductBLL.cs" />
+    <Compile Include="MVVM\Model\BusinessLogicLayer\ProductCategoryBLL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\ProductCategoryDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Product.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\ProductCategory.cs" />
     <Compile Include="MVVM\ViewModel\AdminVM.cs" />
     <Compile Include="MVVM\ViewModel\CashierVM.cs" />
+    <Compile Include="MVVM\ViewModel\ProductsCategoryVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductVM.cs" />
     <Compile Include="MVVM\ViewModel\UserVM.cs" />
     <Compile Include="MVVM\View\AdminView.xaml.cs">
@@ -86,6 +90,15 @@
     </Compile>
     <Compile Include="MVVM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ProductsCategoryView\ProductsCategoryInsertView.xaml.cs">
+      <DependentUpon>ProductsCategoryInsertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ProductsCategoryView\ProductsCategoryUpdateView.xaml.cs">
+      <DependentUpon>ProductsCategoryUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ProductsCategoryView\ProductsCategoryView.xaml.cs">
+      <DependentUpon>ProductsCategoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\ProductsView\ProductsInsertView.xaml.cs">
       <DependentUpon>ProductsInsertView.xaml</DependentUpon>
@@ -129,6 +142,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ProductsCategoryView\ProductsCategoryInsertView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ProductsCategoryView\ProductsCategoryUpdateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ProductsCategoryView\ProductsCategoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
