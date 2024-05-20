@@ -33,7 +33,7 @@ namespace Supermarket
 
         private AdminVM CreateAdminViewModel()
         {
-            return new AdminVM(_navigation,CreateUserViewModel,CreateProductVM,CreateCategoryVM);
+            return new AdminVM(_navigation,CreateUserViewModel,CreateProductVM,CreateCategoryVM,CreateProducerViewModel);
         }
 
         private ProductsCategoryVM CreateCategoryVM()
@@ -46,6 +46,10 @@ namespace Supermarket
             return new ProductVM(_navigation,CreateAdminViewModel);
         }
 
+        private ProducerVM CreateProducerViewModel()
+        {
+            return new ProducerVM(_navigation,CreateAdminViewModel);
+        }
         private UserVM CreateUserViewModel()
         {
             return new UserVM(_navigation,CreateAdminViewModel);

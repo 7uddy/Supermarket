@@ -71,6 +71,12 @@ namespace Supermarket.MVVM.ViewModel
 
         private void Update()
         {
+            if (newProductCategoryName == null)
+            {
+                MessageBox.Show("Please fill all fields.", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             productCategoryBLL.UpdateProductCategory(SelectedProductCategory.CategoryID, newProductCategoryName);
             ProductsCategoriesList = productCategoryBLL.GetAllProductCategories();
             OnPropertyChanged(nameof(ProductsCategoriesList));

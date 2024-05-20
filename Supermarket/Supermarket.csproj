@@ -71,14 +71,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MVVM\Model\BusinessLogicLayer\ProducerBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductCategoryBLL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\ProducerDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductCategoryDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductDAL.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\Producer.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Product.cs" />
     <Compile Include="MVVM\Model\EntityLayer\ProductCategory.cs" />
     <Compile Include="MVVM\ViewModel\AdminVM.cs" />
     <Compile Include="MVVM\ViewModel\CashierVM.cs" />
+    <Compile Include="MVVM\ViewModel\ProducerVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductsCategoryVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductVM.cs" />
     <Compile Include="MVVM\ViewModel\UserVM.cs" />
@@ -90,6 +94,15 @@
     </Compile>
     <Compile Include="MVVM\View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ProducersView\ProducersInsertView.xaml.cs">
+      <DependentUpon>ProducersInsertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ProducersView\ProducersUpdateView.xaml.cs">
+      <DependentUpon>ProducersUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ProducersView\ProducersView.xaml.cs">
+      <DependentUpon>ProducersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\ProductsCategoryView\ProductsCategoryInsertView.xaml.cs">
       <DependentUpon>ProductsCategoryInsertView.xaml</DependentUpon>
@@ -142,6 +155,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ProducersView\ProducersInsertView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ProducersView\ProducersUpdateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ProducersView\ProducersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -12,6 +12,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Button Content="Users"
@@ -33,6 +34,13 @@
                     Width="200"
                     FontWeight="Bold"
                     Command="{Binding NavigateToCategory}"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Content="Producers"
+                    FontSize="20"
+                    Width="100"
+                    FontWeight="Bold"
+                    Command="{Binding NavigateToProducer}"/>
         </Grid>
     </Grid>
 </UserControl>
