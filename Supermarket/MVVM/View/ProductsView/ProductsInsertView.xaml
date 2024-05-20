@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.ProductsView"
         mc:Ignorable="d"
-        Title="ProductsInsertView" Height="450" Width="800">
+        Title="ProductsInsertView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid Margin="150 20 150 20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

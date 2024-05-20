@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Supermarket.MVVM.ViewModel
@@ -171,10 +172,16 @@ namespace Supermarket.MVVM.ViewModel
 
         private void Insert()
         {
+            if(_insertUsername == null || _insertPassword == null || _insertUserType == null)
+            {
+                MessageBox.Show("Please fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+
+            }
             userBLL.InsertUser(_insertUsername, _insertPassword, _insertUserType);
-            _insertUsername = "";
-            _insertPassword = "";
-            _insertUserType = "";
+            _insertUsername = null;
+            _insertPassword = null;
+            _insertUserType = null;
             _usersList = userBLL.GetAllUsers();
             OnPropertyChanged(nameof(UsersList));
             CloseAction?.Invoke();

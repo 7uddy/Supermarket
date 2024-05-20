@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Supermarket.MVVM.ViewModel
@@ -103,8 +104,13 @@ namespace Supermarket.MVVM.ViewModel
         }
         private void Insert()
         {
+            if(insertProductCategoryName==null)
+            {
+                MessageBox.Show("Please fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             productCategoryBLL.InsertProductCategory(insertProductCategoryName);
-            insertProductCategoryName="";
+            insertProductCategoryName=null;
             ProductsCategoriesList = productCategoryBLL.GetAllProductCategories();
             OnPropertyChanged(nameof(ProductsCategoriesList));
             CloseAction?.Invoke();
