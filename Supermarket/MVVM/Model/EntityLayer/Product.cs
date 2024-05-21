@@ -32,11 +32,25 @@ namespace Supermarket.MVVM.Model.EntityLayer
             get { return idCategory; }
             set { idCategory = value; }
         }
+
+        private string category;
+        public string Category
+        {
+            get { return category; }
+            set { category = value; }
+        }
+
         private int idProducer;
         public int IdProducer
         {
             get { return idProducer; }
             set { idProducer = value; }
+        }
+        private string producer;
+        public string Producer
+        {
+            get { return producer; }
+            set { producer = value; }
         }
     }
 }

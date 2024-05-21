@@ -34,8 +34,8 @@
                         <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" />
                         <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" />
                         <DataGridTextColumn Header="Barcode" Binding="{Binding Path=Barcode}" />
-                        <DataGridTextColumn Header="Category ID" Binding="{Binding Path=IdCategory}" />
-                        <DataGridTextColumn Header="Producer ID" Binding="{Binding Path=IdProducer}" />
+                        <DataGridTextColumn Header="Category Name" Binding="{Binding Path=Category}" />
+                        <DataGridTextColumn Header="Producer Name" Binding="{Binding Path=Producer}" />
                         <DataGridTemplateColumn Width="Auto">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
@@ -49,7 +49,7 @@
                                         Click="EditButton_Click" 
                                         Width="50"/>
                                         <Button Content="Delete" 
-                                    Command="{Binding DataContext.DeleteUser, 
+                                    Command="{Binding DataContext.DeleteCommand, 
                                     RelativeSource={RelativeSource AncestorType=UserControl}}" 
                                     CommandParameter="{Binding}"
                                         Width="50"/>
@@ -64,7 +64,7 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <Button Content="Add User" 
+            <Button Content="Add Product" 
             Click="AddProductButton_Click" 
             Width="150"
             HorizontalAlignment="Right"/>

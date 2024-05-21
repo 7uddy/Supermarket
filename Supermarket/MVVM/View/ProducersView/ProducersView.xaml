@@ -62,7 +62,7 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <Button Content="Add User" 
+            <Button Content="Add Producer" 
                  Click="AddProducerButton_Click" 
                  Width="150"
                  HorizontalAlignment="Right"/>

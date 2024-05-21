@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Supermarket.MVVM.Model.EntityLayer;
+using GalaSoft.MvvmLight.Command;
+using System.Windows;
 
 namespace Supermarket.MVVM.ViewModel
 {
@@ -21,6 +23,8 @@ namespace Supermarket.MVVM.ViewModel
         {
             NavigateToAdmin = new NavigateCommand(navigation, createAdminVM);
             _productsList = productBLL.GetAllProducts();
+            UpdateProducers();
+            UpdateCategories();
         }
 
         ProductBLL productBLL = new ProductBLL();
@@ -127,6 +131,120 @@ namespace Supermarket.MVVM.ViewModel
             {
                 _insertIdCategory = value;
                 OnPropertyChanged(nameof(InsertIdCategory));
+            }
+        }
+
+        private ProducerBLL producerBLL= new ProducerBLL();
+
+        private ObservableCollection<KeyValuePair<int, string>> _producerId;
+        public ObservableCollection<KeyValuePair<int, string>> ProducerId
+        {
+            get => _producerId;
+            set => _producerId = value;
+        }
+
+        private void UpdateProducers()
+        {
+            foreach (Producer producer in producerBLL.GetAllProducers())
+            {
+                if (_producerId==null)
+                {
+                    _producerId = new ObservableCollection<KeyValuePair<int, string>>();
+                }
+                _producerId.Add(new KeyValuePair<int, string>(producer.Id, producer.Name));
+            }
+        }
+
+        private ProductCategoryBLL categoryBLL= new ProductCategoryBLL();
+
+        private ObservableCollection<KeyValuePair<int, string>> _categoryId;
+        public ObservableCollection<KeyValuePair<int, string>> CategoryId
+        {
+            get => _categoryId;
+            set => _categoryId = value;
+        }
+
+        private void UpdateCategories()
+        {
+            foreach (ProductCategory category in categoryBLL.GetAllProductCategories())
+            {
+                if(_categoryId==null)
+                {
+                    _categoryId = new ObservableCollection<KeyValuePair<int, string>>();
+                }
+                _categoryId.Add(new KeyValuePair<int, string>(category.CategoryID, category.CategoryName));
+            }
+        }
+
+        private RelayCommand _insertCommand;
+        public ICommand InsertCommand
+        {
+            get
+            {
+                if (_insertCommand == null)
+                {
+                    _insertCommand = new RelayCommand(() =>
+                    {
+                        if(InsertName==null || InsertBarcode==null || InsertIdProducer==0 || InsertIdCategory==0)
+                        {
+                            MessageBox.Show("Please fill all fields.", "Error", 
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        productBLL.InsertProduct(InsertName, InsertBarcode, InsertIdProducer, InsertIdCategory);
+                        InsertName = null;
+                        InsertBarcode = null;
+                        InsertIdProducer = 0;
+                        InsertIdCategory = 0;
+                        ProductsList = productBLL.GetAllProducts();
+                        OnPropertyChanged(nameof(ProductsList));
+                        CloseAction?.Invoke();
+                    });
+                }
+                return _insertCommand;
+            }
+        }
+
+        private RelayCommand _deleteCommand;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if (_deleteCommand == null)
+                {
+                    _deleteCommand = new RelayCommand(() =>
+                    {
+                        productBLL.DeleteProduct(SelectedProduct.Id);
+                        ProductsList = productBLL.GetAllProducts();
+                        OnPropertyChanged(nameof(ProductsList));
+                    });
+                }
+                return _deleteCommand;
+            }
+        }
+
+        private RelayCommand _updateCommand;
+        public ICommand UpdateCommand
+        {
+            get
+            {
+                if (_updateCommand == null)
+                {
+                    _updateCommand = new RelayCommand(() =>
+                    {
+                        if(NewProductName==null || NewBarcode==null || NewIdProducer==0 || NewIdCategory==0)
+                        {
+                            MessageBox.Show("Please fill all fields.", "Error", 
+                                                               MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        productBLL.UpdateProduct(SelectedProduct.Id, NewProductName, NewBarcode, NewIdProducer, NewIdCategory);
+                        ProductsList = productBLL.GetAllProducts();
+                        OnPropertyChanged(nameof(ProductsList));
+                        CloseAction?.Invoke();
+                    });
+                }
+                return _updateCommand;
             }
         }
 
