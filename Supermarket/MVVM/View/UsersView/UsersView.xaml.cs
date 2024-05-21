@@ -26,13 +26,6 @@ namespace Supermarket.MVVM.View
             InitializeComponent();
         }
 
-        private void InsertButton_Click(object sender, RoutedEventArgs e)
-        {
-            var viewModel = (UserVM)DataContext;
-            UserInsertView userInsertPage = new UserInsertView(viewModel);
-            userInsertPage.ShowDialog();
-        }
-
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = (UserVM)DataContext;

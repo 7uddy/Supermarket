@@ -74,17 +74,21 @@
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProducerBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductCategoryBLL.cs" />
+    <Compile Include="MVVM\Model\BusinessLogicLayer\StockBLL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProducerDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductCategoryDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductDAL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\StockDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Producer.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Product.cs" />
     <Compile Include="MVVM\Model\EntityLayer\ProductCategory.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\Stock.cs" />
     <Compile Include="MVVM\ViewModel\AdminVM.cs" />
     <Compile Include="MVVM\ViewModel\CashierVM.cs" />
     <Compile Include="MVVM\ViewModel\ProducerVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductsCategoryVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductVM.cs" />
+    <Compile Include="MVVM\ViewModel\StockVM.cs" />
     <Compile Include="MVVM\ViewModel\UserVM.cs" />
     <Compile Include="MVVM\View\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
@@ -121,6 +125,15 @@
     </Compile>
     <Compile Include="MVVM\View\ProductsView\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StocksView\StocksInsertView.xaml.cs">
+      <DependentUpon>StocksInsertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StocksView\StocksUpdateView.xaml.cs">
+      <DependentUpon>StocksUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StocksView\StocksView.xaml.cs">
+      <DependentUpon>StocksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\UsersView\UserInsertView.xaml.cs">
       <DependentUpon>UserInsertView.xaml</DependentUpon>
@@ -194,6 +207,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\StocksView\StocksInsertView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\StocksView\StocksUpdateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\StocksView\StocksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\UsersView\UserInsertView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +271,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\CommercialExcess.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

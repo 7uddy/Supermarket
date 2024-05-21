@@ -8,6 +8,7 @@
         xmlns:productView="clr-namespace:Supermarket.MVVM.View.ProductsView"
         xmlns:productCategoryView="clr-namespace:Supermarket.MVVM.View.ProductsCategoryView"
         xmlns:producerView="clr-namespace:Supermarket.MVVM.View.ProducersView"
+        xmlns:stockView="clr-namespace:Supermarket.MVVM.View.StocksView"
         mc:Ignorable="d"
         Title="Supermarket" 
         Width="1200"
@@ -39,6 +40,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:ProducerVM}">
                 <producerView:ProducersView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:StockVM}">
+                <stockView:StocksView/>
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
