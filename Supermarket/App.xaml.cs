@@ -58,7 +58,12 @@ namespace Supermarket
         }
         private UserVM CreateUserViewModel()
         {
-            return new UserVM(_navigation,CreateAdminViewModel);
+            return new UserVM(_navigation,CreateAdminViewModel,CreateUserMonthEarningsViewModel);
+        }
+
+        private UserMonthEarningsVM CreateUserMonthEarningsViewModel()
+        {
+            return new UserMonthEarningsVM(_navigation,CreateUserViewModel);
         }
 
         private CashierVM CreateCashierViewModel()

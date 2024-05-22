@@ -11,12 +11,13 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
 {
     public class UserBLL
     {
-       public ObservableCollection<User> UsersList { get; set; }
+       public static ObservableCollection<User> UsersList { get; set; }
        UserDAL userDAL = new UserDAL();
 
         public ObservableCollection<User> GetAllUsers()
         {
-            return userDAL.GetAllUsers();
+            UsersList= userDAL.GetAllUsers();
+            return UsersList;
         }
 
         public User Login(string username, string password)

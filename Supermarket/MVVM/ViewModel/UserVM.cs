@@ -28,10 +28,13 @@ namespace Supermarket.MVVM.ViewModel
         }
 
         public ICommand NavigateToAdmin { get; set; }
+        public ICommand NavigateToUserEarnings { get; set; }
 
-        public UserVM(Navigation navigation, Func<AdminVM> createAdminVM)
+        public UserVM(Navigation navigation, Func<AdminVM> createAdminVM,
+            Func<UserMonthEarningsVM> createUserEarningsVM)
         {
             NavigateToAdmin = new NavigateCommand(navigation,createAdminVM);
+            NavigateToUserEarnings = new NavigateCommand(navigation, createUserEarningsVM);
             _usersList = userBLL.GetAllUsers();
         }
 

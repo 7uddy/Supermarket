@@ -11,6 +11,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" HorizontalAlignment="Left">
             <Image Source="../../../Resources/BackArrow.png" 
@@ -65,6 +66,12 @@
         <Grid Grid.Row="2">
             <Button Content="Add User" 
                     Click="AddUserButton_Click" 
+                    Width="150"
+                    HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Content="View User Earnings" 
+                    Command="{Binding NavigateToUserEarnings}"
                     Width="150"
                     HorizontalAlignment="Right"/>
         </Grid>

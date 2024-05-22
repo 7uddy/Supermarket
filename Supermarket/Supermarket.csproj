@@ -75,20 +75,24 @@
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductCategoryBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\StockBLL.cs" />
+    <Compile Include="MVVM\Model\BusinessLogicLayer\UserMonthEarningsBLL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProducerDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductCategoryDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\StockDAL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\UserMonthEarningsDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Producer.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Product.cs" />
     <Compile Include="MVVM\Model\EntityLayer\ProductCategory.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Stock.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\UserMonthEarning.cs" />
     <Compile Include="MVVM\ViewModel\AdminVM.cs" />
     <Compile Include="MVVM\ViewModel\CashierVM.cs" />
     <Compile Include="MVVM\ViewModel\ProducerVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductsCategoryVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductVM.cs" />
     <Compile Include="MVVM\ViewModel\StockVM.cs" />
+    <Compile Include="MVVM\ViewModel\UserMonthEarningsVM.cs" />
     <Compile Include="MVVM\ViewModel\UserVM.cs" />
     <Compile Include="MVVM\View\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
@@ -134,6 +138,9 @@
     </Compile>
     <Compile Include="MVVM\View\StocksView\StocksView.xaml.cs">
       <DependentUpon>StocksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\UserMonthEarningsView\UserMonthEarningsView.xaml.cs">
+      <DependentUpon>UserMonthEarningsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\UsersView\UserInsertView.xaml.cs">
       <DependentUpon>UserInsertView.xaml</DependentUpon>
@@ -216,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\StocksView\StocksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\UserMonthEarningsView\UserMonthEarningsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
