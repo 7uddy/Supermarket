@@ -62,7 +62,14 @@ namespace Supermarket.MVVM.ViewModel
         {
            if(userBLL.Login(_username, _password)!=null)
             {
-                NavigateToAdmin.Execute(null);
+                if(App._user.UserType=="Admin")
+                {
+                    NavigateToAdmin.Execute(null);
+                }
+                else
+                {
+                    NavigateToCashier.Execute(null);
+                }
             }
             else
             {
