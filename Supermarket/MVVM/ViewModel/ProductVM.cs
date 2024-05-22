@@ -248,6 +248,36 @@ namespace Supermarket.MVVM.ViewModel
             }
         }
 
+        private bool _isFilterOn;
+        private RelayCommand _getProducerProducts;
+        public ICommand GetProducerProducts
+        {
+            get
+            {
+                if (_getProducerProducts == null)
+                {
+                    _getProducerProducts = new RelayCommand(() =>
+                    {
+                        if(SelectedProduct==null && _isFilterOn==false)
+                        {
+                            MessageBox.Show("Please select a product.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        else if(_isFilterOn)
+                        {
+                            ProductsList = productBLL.GetAllProducts();
+                            _isFilterOn = false;
+                            OnPropertyChanged(nameof(ProductsList));
+                            return;
+                        }
+                        ProductsList = productBLL.GetProducerProducts(SelectedProduct.IdProducer);
+                        _isFilterOn = true;
+                        OnPropertyChanged(nameof(ProductsList));
+                    });
+                }
+                return _getProducerProducts;
+            }
+        }
         public Action CloseAction { get; internal set; }
     }
 }

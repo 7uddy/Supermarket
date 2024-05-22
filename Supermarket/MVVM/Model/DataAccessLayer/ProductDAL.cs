@@ -97,5 +97,39 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 connection.Close();
             }
         }
+
+        public ObservableCollection<Product> GetProducerProducts(int idProducer)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetProducerProducts", connection);
+                ObservableCollection<Product> products = new ObservableCollection<Product>();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@idProducer", idProducer));
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = new Product
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Barcode = reader.GetString(2),
+                        IdCategory = reader.GetInt32(3),
+                        Category = reader.GetString(4),
+                        IdProducer = reader.GetInt32(5),
+                        Producer = reader.GetString(6)
+                    };
+                    products.Add(product);
+                }
+                reader.Close();
+                return products;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

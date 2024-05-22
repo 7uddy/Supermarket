@@ -11,6 +11,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" HorizontalAlignment="Left">
             <Image Source="../../../Resources/BackArrow.png" 
@@ -63,11 +64,18 @@
 
             </DockPanel>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Button Content="Add Product" 
             Click="AddProductButton_Click" 
             Width="150"
             HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="Show products from selected producer / All"
+                    Command="{Binding GetProducerProducts}"
+                    Width="240"
+                    HorizontalAlignment="Right"/>
+
         </Grid>
     </Grid>
 </UserControl>

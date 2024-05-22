@@ -29,5 +29,10 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
         {
             productDAL.UpdateProduct(id, newProductName, newBarcode, newIdProducer, newIdCategory);
         }
+
+        public ObservableCollection<Product> GetProducerProducts(int idProducer)
+        {
+           return productDAL.GetProducerProducts(idProducer);
+        }
     }
 }
