@@ -20,5 +20,11 @@ namespace Supermarket.MVVM.Model.EntityLayer
             get { return _categoryName; }
             set { _categoryName = value; }
         }
+        private Decimal _totalPrice;
+        public Decimal TotalPrice
+        {
+            get { return _totalPrice; }
+            set { _totalPrice = value; }
+        }
     }
 }

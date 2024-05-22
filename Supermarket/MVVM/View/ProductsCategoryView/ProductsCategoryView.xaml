@@ -11,6 +11,7 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Grid Grid.Row="0" HorizontalAlignment="Left">
         <Image Source="../../../Resources/BackArrow.png" 
@@ -32,7 +33,8 @@
           IsReadOnly="True">
                 <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding Path=CategoryID}" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Path=CategoryName}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=CategoryName}"/>
+                        <DataGridTextColumn Header="Total Products Price" Binding="{Binding Path=TotalPrice}" x:Name="TotalProductsPrice"/>
                         <DataGridTemplateColumn Width="Auto">
                         <DataGridTemplateColumn.HeaderTemplate>
                             <DataTemplate>
@@ -60,7 +62,13 @@
 
         </DockPanel>
     </Grid>
-    <Grid Grid.Row="2">
+        <Grid Grid.Row="2">
+            <Button Content="Show/Hide Prices"
+                    Width="150"
+                    HorizontalAlignment="Right"
+                    Click="Button_Click"/>
+        </Grid>
+        <Grid Grid.Row="3">
         <Button Content="Add Product Category" 
         Click="AddProductCategoryButton_Click" 
         Width="150"

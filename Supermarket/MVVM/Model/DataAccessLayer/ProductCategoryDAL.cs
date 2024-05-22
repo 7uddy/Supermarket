@@ -26,7 +26,8 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                     ProductCategory productsCategory = new ProductCategory
                     {
                         CategoryID = sqlDataReader.GetInt32(0),
-                        CategoryName = sqlDataReader.GetString(1)
+                        CategoryName = sqlDataReader.GetString(1),
+                        TotalPrice = sqlDataReader.IsDBNull(2) ? 0 : sqlDataReader.GetDecimal(2)
                     };
                     productsCategories.Add(productsCategory);
                 }

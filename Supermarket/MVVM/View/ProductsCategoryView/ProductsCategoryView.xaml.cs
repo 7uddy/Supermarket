@@ -25,6 +25,7 @@ namespace Supermarket.MVVM.View.ProductsCategoryView
         public ProductsCategoryView()
         {
             InitializeComponent();
+            TotalProductsPrice.Visibility = Visibility.Collapsed;
         }
 
         private void AddProductCategoryButton_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,18 @@ namespace Supermarket.MVVM.View.ProductsCategoryView
             var viewModel = (ProductsCategoryVM)DataContext;
             ProductsCategoryUpdateView productCategoryUpdatePage = new ProductsCategoryUpdateView(viewModel);
             productCategoryUpdatePage.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(TotalProductsPrice.Visibility==Visibility.Visible)
+            {
+                TotalProductsPrice.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TotalProductsPrice.Visibility = Visibility.Visible;
+            }
         }
     }
 }
