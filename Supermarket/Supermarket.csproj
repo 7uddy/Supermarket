@@ -74,16 +74,19 @@
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProducerBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ProductCategoryBLL.cs" />
+    <Compile Include="MVVM\Model\BusinessLogicLayer\ReceiptBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\StockBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\UserMonthEarningsBLL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProducerDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductCategoryDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ProductDAL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\ReceiptDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\StockDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\UserMonthEarningsDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Producer.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Product.cs" />
     <Compile Include="MVVM\Model\EntityLayer\ProductCategory.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\Receipt.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Stock.cs" />
     <Compile Include="MVVM\Model\EntityLayer\UserMonthEarning.cs" />
     <Compile Include="MVVM\ViewModel\AdminVM.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="MVVM\ViewModel\ProducerVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductsCategoryVM.cs" />
     <Compile Include="MVVM\ViewModel\ProductVM.cs" />
+    <Compile Include="MVVM\ViewModel\ReceiptVM.cs" />
     <Compile Include="MVVM\ViewModel\StockVM.cs" />
     <Compile Include="MVVM\ViewModel\UserMonthEarningsVM.cs" />
     <Compile Include="MVVM\ViewModel\UserVM.cs" />
@@ -129,6 +133,9 @@
     </Compile>
     <Compile Include="MVVM\View\ProductsView\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ReceiptsView\ReceiptsView.xaml.cs">
+      <DependentUpon>ReceiptsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\StocksView\StocksInsertView.xaml.cs">
       <DependentUpon>StocksInsertView.xaml</DependentUpon>
@@ -211,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\ProductsView\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ReceiptsView\ReceiptsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

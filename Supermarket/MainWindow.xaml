@@ -10,6 +10,7 @@
         xmlns:producerView="clr-namespace:Supermarket.MVVM.View.ProducersView"
         xmlns:stockView="clr-namespace:Supermarket.MVVM.View.StocksView"
         xmlns:userEarningsView="clr-namespace:Supermarket.MVVM.View.UserMonthEarningsView"
+        xmlns:receiptsView="clr-namespace:Supermarket.MVVM.View.ReceiptsView"
         mc:Ignorable="d"
         Title="Supermarket" 
         Width="1200"
@@ -48,6 +49,10 @@
             <DataTemplate DataType="{x:Type vm:UserMonthEarningsVM}">
                 <userEarningsView:UserMonthEarningsView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ReceiptVM}">
+                <receiptsView:ReceiptsView/>
+            </DataTemplate>
+            
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
