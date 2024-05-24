@@ -123,5 +123,39 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 connection.Close();
             }
         }
+
+        public void UpdateStockQuantity(int productId, int quantity)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("UpdateStockQuantity", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@productID", productId));
+                cmd.Parameters.Add(new SqlParameter("@quantity", quantity));
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void CleanStocks()
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("CleanStocks", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

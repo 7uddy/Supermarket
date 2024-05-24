@@ -114,10 +114,56 @@ namespace Supermarket.MVVM.ViewModel
                     }
                     _addedProductsList.Add(new ReceiptProduct
                     {
+                        ProductId = InsertProductId,
                         ProductName = ProductsList.Where(x => x.Key == InsertProductId).Select(x => x.Value).FirstOrDefault(),
                         Quantity = InsertQuantity,
                         Price = InsertPrice*InsertQuantity
                     });
+                    InsertProductId = 0;
+                    InsertQuantity = 0;
+                    OnPropertyChanged("TotalAmount");
+                    CloseAction?.Invoke();
+                }));
+            }
+        }
+
+        private RelayCommand _deleteCommand;
+        public RelayCommand DeleteCommand
+        {
+            get
+            {
+                return _deleteCommand ?? (_deleteCommand = new RelayCommand(() =>
+                {
+                    _addedProductsList.Remove(SelectedProduct);
+                    OnPropertyChanged("TotalAmount");
+                }));
+            }
+        }
+
+        public decimal TotalAmount
+        {
+            get => _addedProductsList.Sum(x => x.Price);
+        }
+
+        private RelayCommand _createReceiptCommand;
+        public RelayCommand CreateReceiptCommand
+        {
+            get
+            {
+                return _createReceiptCommand ?? (_createReceiptCommand = new RelayCommand(() =>
+                {
+                    Receipt receipt = new Receipt
+                    {
+                        Date = DateTime.Now,
+                        CashierId = App._user.Id,
+                        CashierName = App._user.Username,
+                        TotalAmount = TotalAmount
+                    };
+                    ReceiptBLL receiptBLL = new ReceiptBLL();
+                    receiptBLL.CreateReceipt(receipt, _addedProductsList);
+                    MessageBox.Show("Receipt created successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    _addedProductsList.Clear();
+                    OnPropertyChanged("TotalAmount");
                 }));
             }
         }

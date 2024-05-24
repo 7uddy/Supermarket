@@ -14,6 +14,14 @@ namespace Supermarket.MVVM.Model.EntityLayer
             get => _productName;
             set => _productName = value;
         }
+
+        private int _productId;
+        public int ProductId
+        {
+            get => _productId;
+            set => _productId = value;
+        }
+
         private int _quantity;
         public int Quantity
         {

@@ -42,5 +42,25 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
 
 
         }
+
+        public void CreateReceiptProduct(int receiptId, ReceiptProduct receiptProduct)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand command = new SqlCommand("CreateReceiptProduct", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@receiptId", receiptId));
+                command.Parameters.Add(new SqlParameter("@productId", receiptProduct.ProductId));
+                command.Parameters.Add(new SqlParameter("@quantity", receiptProduct.Quantity));
+                command.Parameters.Add(new SqlParameter("@price", receiptProduct.Price));
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

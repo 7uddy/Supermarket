@@ -17,5 +17,18 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
         {
             return receiptDAL.GetAllReceipts();
         }
+
+        public void CreateReceipt(Receipt receipt, ObservableCollection<ReceiptProduct> addedProductsList)
+        {
+            int receiptId=receiptDAL.CreateReceipt(receipt);
+            ReceiptProductDAL receiptProductDAL = new ReceiptProductDAL();
+            StockDAL stockDAL = new StockDAL();
+            foreach (ReceiptProduct receiptProduct in addedProductsList)
+            {
+                receiptProductDAL.CreateReceiptProduct(receiptId, receiptProduct);
+                stockDAL.UpdateStockQuantity(receiptProduct.ProductId, receiptProduct.Quantity);
+            }
+            stockDAL.CleanStocks();
+        }
     }
 }

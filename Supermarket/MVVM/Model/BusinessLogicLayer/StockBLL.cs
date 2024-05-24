@@ -16,6 +16,7 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
 
         public ObservableCollection<Stock> GetAllStock()
         {
+            stockDAL.CleanStocks();
             return stockDAL.GetAllStock();
         }
 
