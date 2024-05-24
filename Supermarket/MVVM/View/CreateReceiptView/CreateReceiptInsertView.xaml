@@ -1,0 +1,58 @@
+﻿<Window x:Class="Supermarket.MVVM.View.CreateReceiptView.CreateReceiptInsertView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarket.MVVM.View.CreateReceiptView"
+        mc:Ignorable="d"
+        Title="CreateReceiptInsertView" Height="450" Width="800">
+    <Grid Margin="150 20 150 20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Product Insert" 
+                          FontSize="30" 
+                          FontWeight="ExtraBold" 
+                          HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20">
+            <TextBlock Text="Product ID" 
+            FontSize="20" 
+            FontWeight="Bold" 
+            HorizontalAlignment="Left"/>
+            <ComboBox SelectedValue="{Binding InsertProductId, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+           ItemsSource="{Binding ProductsList}"
+           DisplayMemberPath="Value"
+           SelectedValuePath="Key"
+           FontSize="15" 
+           FontWeight="Bold" 
+           Width="200"
+           HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Row="2" Margin="20">
+            <TextBlock Text="Quantity" 
+                      FontSize="20" 
+                      FontWeight="Bold" 
+                      HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding InsertQuantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                    FontSize="15" 
+                    FontWeight="Bold" 
+                    Width="200"
+                    HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Row="5" Margin="20">
+            <Button Content="Insert" 
+      Command="{Binding AddProduct}" 
+      FontSize="20" 
+      FontWeight="Bold" 
+      Width="100"
+      HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>

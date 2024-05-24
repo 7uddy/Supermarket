@@ -33,5 +33,10 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
         {
             stockDAL.DeleteStock(stockID);
         }
+
+        public decimal GetProductPriceAndCheckStock(int insertProductId,int insertQuantity)
+        {
+            return stockDAL.GetProductPriceAndCheckStock(insertProductId, insertQuantity);
+        }
     }
 }

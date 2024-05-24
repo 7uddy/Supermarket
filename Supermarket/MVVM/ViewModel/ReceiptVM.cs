@@ -19,12 +19,50 @@ namespace Supermarket.MVVM.ViewModel
             set
             {
                 _receipts = value;
+                if(_receipts!=null)
+                {
+                    UpdateDetails();
+                }
                 OnPropertyChanged("Receipts");
             }
         }
+
+
         public ReceiptVM()
         {
             _receipts = receiptBLL.GetAllReceipts();
         }
+
+        private Receipt _selectedReceipt;
+        public Receipt SelectedReceipt
+        {
+            get => _selectedReceipt;
+            set
+            {
+                _selectedReceipt = value;
+                OnPropertyChanged("SelectedReceipt");
+            }
+        }
+
+        private ReceiptProductBLL receiptProductBLL = new ReceiptProductBLL();  
+
+        private ObservableCollection<ReceiptProduct> _selectedReceiptProducts;
+        public ObservableCollection<ReceiptProduct> SelectedReceiptProducts
+        {
+            get => _selectedReceiptProducts;
+            set
+            {
+                _selectedReceiptProducts = value;
+                OnPropertyChanged("SelectedReceiptProducts");
+            }
+        }
+
+        public Action CloseAction { get; internal set; }
+
+        private void UpdateDetails()
+        {
+            _selectedReceiptProducts = receiptProductBLL.GetReceiptProducts(_selectedReceipt);
+        }
+
     }
 }

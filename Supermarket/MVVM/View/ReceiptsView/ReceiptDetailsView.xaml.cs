@@ -1,4 +1,4 @@
-﻿using Supermarket.MVVM.View.ProductsView;
+﻿using Supermarket.MVVM.Model.EntityLayer;
 using Supermarket.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -12,26 +12,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Supermarket.MVVM.View.ReceiptsView
 {
     /// <summary>
-    /// Interaction logic for ReceiptsView.xaml
+    /// Interaction logic for ReceiptDetailsView.xaml
     /// </summary>
-    public partial class ReceiptsView : UserControl
+    public partial class ReceiptDetailsView : Window
     {
-        public ReceiptsView()
+        public ReceiptDetailsView(ReceiptVM receiptVM)
         {
             InitializeComponent();
-        }
-
-        private void ViewMoreButton_Click(object sender, RoutedEventArgs e)
-        {
-            var viewModel = (ReceiptVM)DataContext;
-            ReceiptDetailsView receiptDetailsPage = new ReceiptDetailsView(viewModel);
-            receiptDetailsPage.ShowDialog();
+            this.DataContext = receiptVM;
+            receiptVM.CloseAction = new Action(this.Close);
         }
     }
 }

@@ -15,5 +15,9 @@
             <Button Content="Receipt"
                     Command="{Binding NavigateToReceipt}"/>
         </Grid>
+        <Grid Grid.Row="1">
+            <Button Content="Create Receipt"
+                    Command="{Binding NavigateToCreateReceipt}"/>
+        </Grid>
     </Grid>
 </UserControl>

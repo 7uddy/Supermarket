@@ -1,4 +1,5 @@
-﻿using Supermarket.Commands;
+﻿using GalaSoft.MvvmLight.Command;
+using Supermarket.Commands;
 using Supermarket.Stores;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,11 @@ namespace Supermarket.MVVM.ViewModel
     public class CashierVM:ViewModelBase
     {
         public ICommand NavigateToReceipt { get; set; }
-        public CashierVM(Navigation navigation,Func<ReceiptVM> createReceiptVM)
+        public ICommand NavigateToCreateReceipt { get; set; }
+        public CashierVM(Navigation navigation,Func<ReceiptVM> createReceiptVM,Func<CreateReceiptVM> createCreateReceiptVM)
         {
             NavigateToReceipt = new NavigateCommand(navigation, createReceiptVM);
+            NavigateToCreateReceipt = new NavigateCommand(navigation, createCreateReceiptVM);
         }
     }
 }

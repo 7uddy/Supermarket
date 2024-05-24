@@ -12,8 +12,9 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
         {
             get
             {
-                return new SqlConnection("Data Source=TUDDYSASUS\\SQLEXPRESS;Initial Catalog=SupermarketDB;Integrated Security=True;Encrypt=False");
-                    //"Data Source = TUDDYsPC\\SQLEXPRESS; Initial Catalog = SupermarketDB; Integrated Security = True; Encrypt = False");
+                return new SqlConnection("Data Source = TUDDYsPC\\SQLEXPRESS; Initial Catalog = SupermarketDB; Integrated Security = True; Encrypt = False");
+                //
+                //"Data Source=TUDDYSASUS\\SQLEXPRESS;Initial Catalog=SupermarketDB;Integrated Security=True;Encrypt=False"
             }
         }
     }

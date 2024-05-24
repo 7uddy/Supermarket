@@ -66,6 +66,11 @@ namespace Supermarket
             return new ReceiptVM();
         }
 
+        private CreateReceiptVM CreateCreateReceiptViewModel()
+        {
+            return new CreateReceiptVM(_navigation,CreateCashierViewModel);
+        }
+
         private UserMonthEarningsVM CreateUserMonthEarningsViewModel()
         {
             return new UserMonthEarningsVM(_navigation,CreateUserViewModel);
@@ -73,7 +78,7 @@ namespace Supermarket
 
         private CashierVM CreateCashierViewModel()
         {
-            return new CashierVM(_navigation,CreateReceiptViewModel);
+            return new CashierVM(_navigation,CreateReceiptViewModel, CreateCreateReceiptViewModel);
         }
     }
 }

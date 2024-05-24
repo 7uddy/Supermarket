@@ -105,5 +105,23 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 connection.Close();
             }
         }
+
+        public decimal GetProductPriceAndCheckStock(int insertProductId,int insertQuantity)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetProductPriceAndCheckStock", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@productID", insertProductId));
+                cmd.Parameters.Add(new SqlParameter("@quantity", insertQuantity));
+                connection.Open();
+                return Convert.ToDecimal(cmd.ExecuteScalar());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
