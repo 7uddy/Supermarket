@@ -7,16 +7,27 @@
         mc:Ignorable="d"
         Title="ReceiptDetailsView" Height="450" Width="800">
     <Grid>
-        <DataGrid>
-            <DataGrid  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <DataGrid AutoGenerateColumns="False" 
                 ColumnWidth="*" ItemsSource="{Binding SelectedReceiptProducts}" IsReadOnly="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=Name}" />
-                    <DataGridTextColumn Binding="{Binding Path=Quantity}" />
-                    <DataGridTextColumn Binding="{Binding Path=Price}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </DataGrid>
-
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=ProductName}" />
+                        <DataGridTextColumn Binding="{Binding Path=Quantity}" />
+                        <DataGridTextColumn Binding="{Binding Path=Price}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1" HorizontalAlignment="Right">
+            <DockPanel>
+                <TextBlock Text="Total Amount: " FontWeight="Bold" FontSize="20" Margin="10 10 10 10"/>
+                <TextBlock Text="{Binding SelectedReceipt.TotalAmount}" FontWeight="Bold" FontSize="20" Margin="10 10 10 10"/>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>

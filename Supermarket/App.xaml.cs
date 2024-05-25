@@ -63,7 +63,7 @@ namespace Supermarket
 
         private ReceiptVM CreateReceiptViewModel()
         {
-            return new ReceiptVM();
+            return new ReceiptVM(_navigation, CreateCashierViewModel);
         }
 
         private CreateReceiptVM CreateCreateReceiptViewModel()

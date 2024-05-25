@@ -1,11 +1,14 @@
-﻿using Supermarket.MVVM.Model.BusinessLogicLayer;
+﻿using Supermarket.Commands;
+using Supermarket.MVVM.Model.BusinessLogicLayer;
 using Supermarket.MVVM.Model.EntityLayer;
+using Supermarket.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Supermarket.MVVM.ViewModel
 {
@@ -13,6 +16,8 @@ namespace Supermarket.MVVM.ViewModel
     {
         private ReceiptBLL receiptBLL=new ReceiptBLL();
         private ObservableCollection<Receipt> _receipts;
+
+        public ICommand NavigateToCashier { get; set; }
         public ObservableCollection<Receipt> Receipts
         {
             get => _receipts;
@@ -28,9 +33,10 @@ namespace Supermarket.MVVM.ViewModel
         }
 
 
-        public ReceiptVM()
+        public ReceiptVM(Navigation navigation,Func<CashierVM> createCashierVM)
         {
             _receipts = receiptBLL.GetAllReceipts();
+            NavigateToCashier = new NavigateCommand(navigation, createCashierVM);
         }
 
         private Receipt _selectedReceipt;
@@ -40,6 +46,7 @@ namespace Supermarket.MVVM.ViewModel
             set
             {
                 _selectedReceipt = value;
+                UpdateDetails();
                 OnPropertyChanged("SelectedReceipt");
             }
         }
