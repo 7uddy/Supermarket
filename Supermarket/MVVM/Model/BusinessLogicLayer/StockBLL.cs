@@ -11,7 +11,6 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
 {
     public class StockBLL
     {
-        private ObservableCollection<Stock> stockList;
         private StockDAL stockDAL = new StockDAL();
 
         public ObservableCollection<Stock> GetAllStock()

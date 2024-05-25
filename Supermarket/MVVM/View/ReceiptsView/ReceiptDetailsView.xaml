@@ -17,7 +17,13 @@
                 ColumnWidth="*" ItemsSource="{Binding SelectedReceiptProducts}" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=ProductName}" />
-                        <DataGridTextColumn Binding="{Binding Path=Quantity}" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Quantity, StringFormat='x{0}'}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Binding="{Binding Path=Price}" />
                     </DataGrid.Columns>
                 </DataGrid>

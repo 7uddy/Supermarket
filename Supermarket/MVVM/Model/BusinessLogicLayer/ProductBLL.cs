@@ -34,5 +34,30 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
         {
            return productDAL.GetProducerProducts(idProducer);
         }
+
+        public Product GetProductByBarcode(long v)
+        {
+            return productDAL.GetProductByBarcode(v);
+        }
+
+        public Product GetProductByDate(DateTime date)
+        {
+            return productDAL.GetProductByDate(date);
+        }
+
+        public Product GetProductByName(string searchBar)
+        { 
+            return productDAL.GetProductByName(searchBar);
+        }
+
+        public Product GetProductByCategory(string searchBar)
+        {
+            return productDAL.GetProductByCategory(searchBar);
+        }
+
+        public Product GetProductByProducer(string searchBar)
+        {
+            return productDAL.GetProductByProducer(searchBar);
+        }
     }
 }
