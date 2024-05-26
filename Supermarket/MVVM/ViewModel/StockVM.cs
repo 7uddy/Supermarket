@@ -214,7 +214,7 @@ namespace Supermarket.MVVM.ViewModel
                 {
                     _insertCommand = new RelayCommand(() =>
                     {
-                        if (SelectedProductId == 0 || string.IsNullOrEmpty(InsertQuantity) || 
+                        if (SelectedProductId == 0 || string.IsNullOrEmpty(InsertQuantity) || InsertQuantity=="0"|| InsertPurchasePrice=="0"||
                         string.IsNullOrEmpty(InsertPurchasePrice)|| _insertSupplyDate.CompareTo(_insertExpirationDate) > 0)
                         {
                             MessageBox.Show("Please check all fields.", "Error", 

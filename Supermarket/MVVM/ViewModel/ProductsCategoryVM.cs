@@ -72,7 +72,7 @@ namespace Supermarket.MVVM.ViewModel
 
         private void Update()
         {
-            if (newProductCategoryName == null)
+            if (newProductCategoryName == null||newProductCategoryName=="")
             {
                 MessageBox.Show("Please fill all fields.", "Error", 
                     MessageBoxButton.OK, MessageBoxImage.Error);
@@ -111,7 +111,7 @@ namespace Supermarket.MVVM.ViewModel
         }
         private void Insert()
         {
-            if(insertProductCategoryName==null)
+            if(insertProductCategoryName==null||insertProductCategoryName=="")
             {
                 MessageBox.Show("Please fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

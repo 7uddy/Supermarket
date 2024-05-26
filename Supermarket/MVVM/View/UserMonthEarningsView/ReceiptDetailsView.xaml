@@ -64,7 +64,7 @@ Background="#CCCCCC">
         <Grid Grid.Row="1" HorizontalAlignment="Right">
             <DockPanel>
                 <TextBlock Text="Total Amount: " FontWeight="Bold" FontSize="20" Margin="10"/>
-                <TextBlock Text="{Binding SelectedReceipt.TotalAmount}" FontWeight="Bold" FontSize="20" Margin="10 10 10 10"/>
+                <TextBlock Text="{Binding TotalAmount}" FontWeight="Bold" FontSize="20" Margin="10 10 10 10"/>
             </DockPanel>
         </Grid>
     </Grid>

@@ -185,7 +185,8 @@ namespace Supermarket.MVVM.ViewModel
                 {
                     _insertCommand = new RelayCommand(() =>
                     {
-                        if(InsertName==null || InsertBarcode==null || InsertIdProducer==0 || InsertIdCategory==0)
+                        if(InsertName==null || InsertBarcode==null || InsertIdProducer==0 || InsertIdCategory==0
+                         ||InsertName==""||InsertBarcode=="")
                         {
                             MessageBox.Show("Please fill all fields.", "Error", 
                                 MessageBoxButton.OK, MessageBoxImage.Error);
@@ -232,7 +233,7 @@ namespace Supermarket.MVVM.ViewModel
                 {
                     _updateCommand = new RelayCommand(() =>
                     {
-                        if(NewProductName==null || NewBarcode==null || NewIdProducer==0 || NewIdCategory==0)
+                        if(NewProductName == null || NewBarcode == null || NewIdProducer == 0 || NewIdCategory == 0 || NewProductName == "" || NewBarcode == "")
                         {
                             MessageBox.Show("Please fill all fields.", "Error", 
                                                                MessageBoxButton.OK, MessageBoxImage.Error);

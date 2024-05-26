@@ -102,6 +102,10 @@ namespace Supermarket.MVVM.ViewModel
                 OnPropertyChanged("SelectedReceiptProducts");
             }
         }
+        public decimal TotalAmount
+        {
+            get => _selectedReceiptProducts.Sum(x => x.Price);
+        }
 
         public Action CloseAction { get; internal set; }
 

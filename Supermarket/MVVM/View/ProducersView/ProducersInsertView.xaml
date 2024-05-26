@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.ProducersView"
         mc:Ignorable="d"
-        Title="ProducersInsertView" Height="450" Width="800">
+        Title="Producer Insert" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400" MinWidth="700"
+        Background="#4E937A">
     <Grid Margin="150 75 150 75">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -44,9 +47,11 @@
         <Grid Grid.Row="5" Margin="20">
             <Button Content="Insert" 
       Command="{Binding InsertCommand}" 
-      FontSize="20" 
-      FontWeight="Bold" 
-      Width="100"
+                    Background="#90B3A6"
+              BorderThickness="0"
+FontSize="20" 
+FontWeight="Bold" 
+Width="100"
       HorizontalAlignment="Center"/>
         </Grid>
     </Grid>

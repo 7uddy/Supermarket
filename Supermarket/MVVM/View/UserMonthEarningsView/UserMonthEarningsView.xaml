@@ -44,7 +44,7 @@
         <Grid Grid.Row="2">
             <DockPanel>
                 <DataGrid x:Name="UsersDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" 
-                  ColumnWidth="*" ItemsSource="{Binding MonthEarningsList}"
+                  ColumnWidth="*" ItemsSource="{Binding MonthEarningsList}" SelectedItem="{Binding SelectedReceipt}"
                   IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" />

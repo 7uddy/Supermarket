@@ -26,7 +26,7 @@ namespace Supermarket.MVVM.View.StocksView
             InitializeComponent();
         }
 
-        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        private void AddStockButton_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = (StockVM)DataContext;
             StocksInsertView stockInsertPage = new StocksInsertView(viewModel);

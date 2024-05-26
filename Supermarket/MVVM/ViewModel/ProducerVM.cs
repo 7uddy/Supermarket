@@ -63,7 +63,7 @@ namespace Supermarket.MVVM.ViewModel
                 {
                     insertCommand = new RelayCommand(() =>
                     {
-                        if (insertName == null || insertCountry==null)
+                        if (insertName == null || insertCountry == null || insertName == "" || insertCountry == "")
                         {
                             MessageBox.Show("Please fill all fields.", "Error", 
                                 MessageBoxButton.OK, MessageBoxImage.Error);
@@ -127,7 +127,7 @@ namespace Supermarket.MVVM.ViewModel
                 {
                     updateCommand = new RelayCommand(() =>
                     {
-                        if (newName == null || newCountry == null)
+                        if (newName == null || newCountry == null || newName==""||newCountry=="")
                         {
                             MessageBox.Show("Please fill all fields.", "Error", 
                                                                MessageBoxButton.OK, MessageBoxImage.Error);

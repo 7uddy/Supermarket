@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View" xmlns:viewmodel="clr-namespace:Supermarket.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserVM}"
         mc:Ignorable="d"
-        Title="UserInsertView" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        Title="User Insert" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400" MinWidth="700"
+        Background="#4E937A">
     <Grid Margin="150 50 150 50">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -29,6 +31,7 @@
             <TextBox Text="{Binding InsertUsername, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                  FontSize="15" 
                  FontWeight="Bold" 
+                 Background="#EEEEEE"
                  Width="200"
                  HorizontalAlignment="Right"/>
         </Grid>
@@ -41,6 +44,7 @@
          FontSize="15" 
          FontWeight="Bold" 
          Width="200"
+         Background="#EEEEEE"
          HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
@@ -58,9 +62,11 @@
         <Grid Grid.Row="4" Margin="20">
             <Button Content="Insert" 
                Command="{Binding InsertCommand}" 
-               FontSize="20" 
-               FontWeight="Bold" 
-               Width="100"
+               Background="#90B3A6"
+               BorderThickness="0"
+                FontSize="20" 
+                FontWeight="Bold" 
+                Width="100"
                HorizontalAlignment="Center"/>
         </Grid>
     </Grid>

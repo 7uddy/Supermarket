@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.ProductsView"
         mc:Ignorable="d"
-        Title="ProductsInsertView" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        Title="Product Insert" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400" MinWidth="700"
+        Background="#4E937A">
     <Grid Margin="150 20 150 20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -29,20 +31,21 @@
            HorizontalAlignment="Left"/>
             <TextBox Text="{Binding InsertName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
          FontSize="15" 
-         FontWeight="Bold" 
+         FontWeight="Bold"
          Width="200"
          HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="2" Margin="20">
             <TextBlock Text="Barcode" 
-   FontSize="20" 
-   FontWeight="Bold" 
-   HorizontalAlignment="Left"/>
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Left"/>
             <TextBox Text="{Binding InsertBarcode, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
- FontSize="15" 
- FontWeight="Bold" 
- Width="200"
- HorizontalAlignment="Right"/>
+                     FontSize="15" 
+                     FontWeight="Bold" 
+                     Background="#EEEEEE"
+                     Width="200"
+                     HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
             <TextBlock Text="Producer ID" 
@@ -75,9 +78,11 @@
         <Grid Grid.Row="5" Margin="20">
             <Button Content="Insert" 
        Command="{Binding InsertCommand}" 
-       FontSize="20" 
-       FontWeight="Bold" 
-       Width="100"
+        Background="#90B3A6"
+        BorderThickness="0"
+        FontSize="20" 
+        FontWeight="Bold" 
+        Width="100"
        HorizontalAlignment="Center"/>
         </Grid>
     </Grid>

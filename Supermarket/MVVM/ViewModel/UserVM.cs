@@ -2,14 +2,10 @@
 using Supermarket.Commands;
 using Supermarket.MVVM.Model;
 using Supermarket.MVVM.Model.BusinessLogicLayer;
-using Supermarket.MVVM.View;
 using Supermarket.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -105,6 +101,12 @@ namespace Supermarket.MVVM.ViewModel
 
         private void Update()
         {
+            if (newUsername == null || newPassword == null || newUserType == null
+                || newUsername == "" || newPassword == "")
+            {
+                MessageBox.Show("Please fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             userBLL.UpdateUser(SelectedUser.Id,newUsername,newPassword,newUserType);
             _usersList = userBLL.GetAllUsers();
             OnPropertyChanged(nameof(UsersList));
@@ -175,7 +177,8 @@ namespace Supermarket.MVVM.ViewModel
 
         private void Insert()
         {
-            if(_insertUsername == null || _insertPassword == null || _insertUserType == null)
+            if(_insertUsername == null || _insertPassword == null || _insertUserType == null
+                || _insertUsername==""|| _insertPassword=="")
             {
                 MessageBox.Show("Please fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

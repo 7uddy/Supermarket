@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.ProducersView"
         mc:Ignorable="d"
-        Title="ProducersUpdateView" Height="450" Width="800">
+        Title="Producer Update" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400" MinWidth="700"
+        Background="#4E937A">
     <Grid Margin="150 75 150 75">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -43,11 +46,13 @@
         </Grid>
         <Grid Grid.Row="5" Margin="20">
             <Button Content="Update" 
-      Command="{Binding UpdateCommand}" 
-      FontSize="20" 
-      FontWeight="Bold" 
-      Width="100"
-      HorizontalAlignment="Center"/>
+              Command="{Binding UpdateCommand}" 
+              FontSize="20" 
+              Background="#90B3A6"
+              BorderThickness="0"
+              FontWeight="Bold" 
+              Width="100"
+              HorizontalAlignment="Center"/>
         </Grid>
     </Grid>
 </Window>

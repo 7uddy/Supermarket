@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Supermarket.MVVM.Model
 {
@@ -30,10 +31,7 @@ namespace Supermarket.MVVM.Model
         private string userType;
         public string UserType
         {
-            get {
-                if (userType == "1") return "Admin";
-                else return "Employee";
-            }
+            get {return userType; }
             set { userType = value; }
         }
     }

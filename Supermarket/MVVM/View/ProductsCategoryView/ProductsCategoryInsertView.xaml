@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.ProductsCategoryView" xmlns:viewmodel="clr-namespace:Supermarket.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ProductsCategoryVM}"
         mc:Ignorable="d"
-        Title="ProductsCategoryInsertView" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
-    <Grid Margin="150 20 150 20">
+        Title="Category Insert" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400" MinWidth="700"
+        Background="#4E937A">
+    <Grid Margin="150 20 150 20" VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Margin="0 0 0 50">
             <TextBlock Text="Product Category Insert" 
           FontSize="30" 
           FontWeight="ExtraBold" 
@@ -33,9 +35,11 @@
         <Grid Grid.Row="2" Margin="20">
             <Button Content="Insert" 
       Command="{Binding InsertCommand}" 
-      FontSize="20" 
-      FontWeight="Bold" 
-      Width="100"
+                    Background="#90B3A6"
+              BorderThickness="0"
+FontSize="20" 
+FontWeight="Bold" 
+Width="100"
       HorizontalAlignment="Center"/>
         </Grid>
     </Grid>
