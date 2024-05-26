@@ -48,8 +48,25 @@
                   IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" />
-                        <DataGridTextColumn Header="Earnings" Binding="{Binding Path=Earnings}" />
+                        <DataGridTextColumn Header="Earnings" Binding="{Binding Path=TotalEarning}" />
+                        <DataGridTemplateColumn Width="Auto">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="Action" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Details" 
+                                        Click="ViewMore_Click" 
+                                        Width="50"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
+                    
                 </DataGrid>
             </DockPanel>
         </Grid>

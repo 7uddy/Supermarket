@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.CreateReceiptView"
         mc:Ignorable="d"
-        Title="CreateReceiptInsertView" Height="450" Width="800"
+        Title="Product Insert" Height="550" Width="900"
         WindowStartupLocation="CenterScreen"
         MinHeight="400" MinWidth="700"
         Background="#4E937A">

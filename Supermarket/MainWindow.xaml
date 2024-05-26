@@ -14,7 +14,7 @@
         xmlns:createReceiptView="clr-namespace:Supermarket.MVVM.View.CreateReceiptView"
         mc:Ignorable="d"
         Title="Supermarket" 
-        Width="1200"
+        Width="1400"
         Height="800"
         WindowStartupLocation="CenterScreen"
         MinWidth="400"

@@ -159,6 +159,9 @@
     <Compile Include="MVVM\View\StocksView\StocksView.xaml.cs">
       <DependentUpon>StocksView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\UserMonthEarningsView\ReceiptDetailsView.xaml.cs">
+      <DependentUpon>ReceiptDetailsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\UserMonthEarningsView\UserMonthEarningsView.xaml.cs">
       <DependentUpon>UserMonthEarningsView.xaml</DependentUpon>
     </Compile>
@@ -259,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\StocksView\StocksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\UserMonthEarningsView\ReceiptDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

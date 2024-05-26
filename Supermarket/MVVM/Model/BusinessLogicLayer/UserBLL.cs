@@ -12,12 +12,27 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
     public class UserBLL
     {
        public static ObservableCollection<User> UsersList { get; set; }
+       public static ObservableCollection<User> EmployeesList { get; set; }
        UserDAL userDAL = new UserDAL();
 
         public ObservableCollection<User> GetAllUsers()
         {
             UsersList= userDAL.GetAllUsers();
+            EmployeesList = GetEmployees();
             return UsersList;
+        }
+
+        private ObservableCollection<User> GetEmployees()
+        {
+            ObservableCollection<User> EmployeesList= new ObservableCollection<User>();
+            foreach (User user in UsersList)
+            {
+                if (user.UserType == "Employee")
+                {
+                    EmployeesList.Add(user);
+                }
+            }
+            return EmployeesList;
         }
 
         public User Login(string username, string password)

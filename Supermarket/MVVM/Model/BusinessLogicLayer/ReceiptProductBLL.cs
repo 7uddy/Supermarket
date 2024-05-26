@@ -14,7 +14,13 @@ namespace Supermarket.MVVM.Model.BusinessLogicLayer
         private ReceiptProductDAL receiptProductDAL = new ReceiptProductDAL();
         public ObservableCollection<ReceiptProduct> GetReceiptProducts(Receipt selectedReceipt)
         {
-            return receiptProductDAL.GetReceiptProducts(selectedReceipt);
+            return receiptProductDAL.GetReceiptProducts(selectedReceipt.Id);
+        }
+
+        public ObservableCollection<ReceiptProduct> GetHighestReceiptProducts(DateTime date)
+        {
+            int receiptId = receiptProductDAL.GetHighestReceiptId(date);
+            return receiptProductDAL.GetReceiptProducts(receiptId);
         }
     }
 }

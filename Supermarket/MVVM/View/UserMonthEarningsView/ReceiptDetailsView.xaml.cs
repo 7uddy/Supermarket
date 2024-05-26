@@ -11,26 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Supermarket.MVVM.View.UserMonthEarningsView
 {
     /// <summary>
-    /// Interaction logic for UserMonthEarningsView.xaml
+    /// Interaction logic for ReceiptDetailsView.xaml
     /// </summary>
-    public partial class UserMonthEarningsView : UserControl
+    public partial class ReceiptDetailsView : Window
     {
-        public UserMonthEarningsView()
+        public ReceiptDetailsView(UserMonthEarningsVM earningsVM)
         {
             InitializeComponent();
-        }
-
-        private void ViewMore_Click(object sender, RoutedEventArgs e)
-        {
-            var viewModel = (UserMonthEarningsVM)DataContext;
-            ReceiptDetailsView receiptDetailsPage = new ReceiptDetailsView(viewModel);
-            receiptDetailsPage.ShowDialog();
+            this.DataContext = earningsVM;
+            earningsVM.CloseAction = new Action(this.Close);
         }
     }
 }

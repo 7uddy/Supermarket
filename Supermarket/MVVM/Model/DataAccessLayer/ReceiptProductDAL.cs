@@ -11,7 +11,7 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
 {
     public class ReceiptProductDAL
     {
-        public ObservableCollection<ReceiptProduct> GetReceiptProducts(Receipt selectedReceipt)
+        public ObservableCollection<ReceiptProduct> GetReceiptProducts(int id)
         {
             SqlConnection connection = DALHelper.Connection;
             try
@@ -19,7 +19,7 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 SqlCommand command = new SqlCommand("GetReceiptProducts", connection);
                 ObservableCollection<ReceiptProduct> receiptProducts = new ObservableCollection<ReceiptProduct>();
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@receiptId", selectedReceipt.Id));
+                command.Parameters.Add(new SqlParameter("@receiptId", id));
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -56,6 +56,28 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                 command.Parameters.Add(new SqlParameter("@price", receiptProduct.Price));
                 connection.Open();
                 command.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public int GetHighestReceiptId(DateTime date)
+        {
+            SqlConnection connection = DALHelper.Connection;
+            try
+            {
+                SqlCommand command = new SqlCommand("GetHighestReceiptId", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@date", date));
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return reader.GetInt32(0);
+                }
+                return 0;
             }
             finally
             {
