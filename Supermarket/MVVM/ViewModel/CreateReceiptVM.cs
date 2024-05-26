@@ -152,6 +152,11 @@ namespace Supermarket.MVVM.ViewModel
             {
                 return _createReceiptCommand ?? (_createReceiptCommand = new RelayCommand(() =>
                 {
+                    if(_addedProductsList.Count==0)
+                    {
+                        MessageBox.Show("Please add products to the receipt", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                     Receipt receipt = new Receipt
                     {
                         Date = DateTime.Now,

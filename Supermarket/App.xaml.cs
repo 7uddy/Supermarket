@@ -78,7 +78,7 @@ namespace Supermarket
 
         private CashierVM CreateCashierViewModel()
         {
-            return new CashierVM(_navigation,CreateReceiptViewModel, CreateCreateReceiptViewModel);
+            return new CashierVM(_navigation,CreateReceiptViewModel, CreateCreateReceiptViewModel,CreateLoginViewModel);
         }
     }
 }

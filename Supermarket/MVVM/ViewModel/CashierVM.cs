@@ -17,10 +17,13 @@ namespace Supermarket.MVVM.ViewModel
     {
         public ICommand NavigateToReceipt { get; set; }
         public ICommand NavigateToCreateReceipt { get; set; }
-        public CashierVM(Navigation navigation,Func<ReceiptVM> createReceiptVM,Func<CreateReceiptVM> createCreateReceiptVM)
+        public ICommand NavigateToLogin { get; set; }
+        public CashierVM(Navigation navigation,Func<ReceiptVM> createReceiptVM,Func<CreateReceiptVM> createCreateReceiptVM,
+            Func<LoginVM> createLoginVM)
         {
             NavigateToReceipt = new NavigateCommand(navigation, createReceiptVM);
             NavigateToCreateReceipt = new NavigateCommand(navigation, createCreateReceiptVM);
+            NavigateToLogin = new NavigateCommand(navigation, createLoginVM);
         }
 
         public string CashierName
@@ -107,6 +110,19 @@ namespace Supermarket.MVVM.ViewModel
                             return;
                         }
                     }
+                }));
+            }
+        }
+
+        private RelayCommand _logoutCommand;
+        public RelayCommand LogoutCommand
+        {
+            get
+            {
+                return _logoutCommand ?? (_logoutCommand = new RelayCommand(() =>
+                {
+                    App._user = null;
+                    NavigateToLogin.Execute(null);
                 }));
             }
         }

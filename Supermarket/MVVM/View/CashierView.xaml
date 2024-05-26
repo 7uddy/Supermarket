@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Supermarket.MVVM.View"
+             xmlns:local="clr-namespace:Supermarket.MVVM.View" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -11,28 +11,54 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" VerticalAlignment="Center">
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+
+            <StackPanel Grid.Row="0" VerticalAlignment="Center">
                 <Button Content="Receipt"
-                    Height="40"
-                    Width="150"
-                    Command="{Binding NavigateToReceipt}"/>
-            </Grid>
-            <Grid Grid.Row="1">
+                        VerticalAlignment="Bottom"
+                        Foreground="White"
+                        Background="#493342"
+                        FontSize="15"
+                        BorderBrush="SlateGray"
+                        BorderThickness="0"
+                        Height="40"
+                        Width="150"
+                        Command="{Binding NavigateToReceipt}"
+                        Margin="0 0 0 10"/>
+
                 <Button Content="Create Receipt"
-                    Height="40"
-                    Width="150"
-                    Command="{Binding NavigateToCreateReceipt}"/>
+                        Foreground="White"
+                        Background="#493342"
+                        FontSize="15"
+                        BorderBrush="SlateGray"
+                        BorderThickness="0"
+                        Height="40"
+                        Width="150"
+                        VerticalAlignment="Center"
+                        Command="{Binding NavigateToCreateReceipt}"
+                        Margin="0 0 0 10"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1" VerticalAlignment="Bottom">
+                <Image Source="../../../Resources/LogOut.png" 
+                       Stretch="Uniform" 
+                       Height="50"
+                       RenderOptions.BitmapScalingMode="HighQuality"
+                       Margin="20">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDown">
+                            <i:InvokeCommandAction Command="{Binding LogoutCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -42,30 +68,42 @@
                 <TextBlock Text="Welcome, "
                            HorizontalAlignment="Left"
                            Foreground="White"
-                           FontSize="30"/>
+                           FontSize="40"/>
                 <TextBlock  Text="{Binding CashierName}"
                             HorizontalAlignment="Left"
-                            Margin="135 0 0 0"
+                            Margin="175 0 0 0"
                             Foreground="White"
-                            FontSize="30"/>
+                            FontSize="40"/>
                 <TextBox Text="{Binding SearchBar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Background="#493342"
+                     Foreground="WhiteSmoke"
+                     BorderBrush="SlateGray"
+                     BorderThickness="0"
                      HorizontalAlignment="Right"
                      Height="40"
                      FontSize="25"
                      Width="250"
-                         Margin="0 0 110 0"/>
+                     
+                     Margin="0 0 105 0"/>
                 <Button Content="Search"
                         HorizontalAlignment="Right"
+                        Foreground="White"
+                        Background="#493342"
+                        FontSize="17"
+                        BorderBrush="SlateGray"
+                        BorderThickness="0"
                         Height="40"
                         Width="100"
-                        FontSize="18"
+                        
                         Command="{Binding SearchCommand}"/>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" >
                 <TextBlock Text="{Binding SearchedProduct.Name}"
                            HorizontalAlignment="Center"
                            Foreground="White"
-                           FontSize="30"/>
+                           FontWeight="UltraBlack"
+                           FontSize="60"
+                           Margin="0 70 0 0"/>
             </Grid>
             <Grid Grid.Row="2">
                 <TextBlock Text="{Binding SearchedProduct.Barcode}"
@@ -77,21 +115,17 @@
                 <TextBlock Text="{Binding SearchedProduct.Category}"
                            HorizontalAlignment="Center"
                            Foreground="White"
-                           FontSize="30"/>
-            </Grid>
-            <Grid Grid.Row="4">
+                           FontSize="35"
+                           FontWeight="DemiBold"
+                           Margin="0 50 300 0"/>
+
                 <TextBlock Text="{Binding SearchedProduct.Producer}"
                            HorizontalAlignment="Center"
                            Foreground="White"
-                           FontSize="30"/>
+                           FontWeight="DemiBold"
+                           FontSize="35"
+                           Margin="300 50 0 0"/>
             </Grid>
-            <!--<Grid Grid.Row="5">
-                <TextBlock Text="{Binding SearchedProduct.Price}"
-                           HorizontalAlignment="Center"
-                           Foreground="White"
-                           FontSize="30"/>
-            </Grid>-->
-            
         </Grid>
     </Grid>
 </UserControl>

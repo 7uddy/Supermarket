@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.ReceiptsView"
         mc:Ignorable="d"
-        Title="ReceiptDetailsView" Height="450" Width="800">
+        Title="Supermarket" Height="800" Width="450"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="400"
+        MinHeight="400"
+        Background="#CCCCCC">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,7 +18,34 @@
         <Grid Grid.Row="0">
             <DockPanel>
                 <DataGrid AutoGenerateColumns="False" 
-                ColumnWidth="*" ItemsSource="{Binding SelectedReceiptProducts}" IsReadOnly="True">
+                ColumnWidth="*" ItemsSource="{Binding SelectedReceiptProducts}" IsReadOnly="True"
+                        Background="White"                  
+                        RowBackground="#E0E0E0"
+                        AlternatingRowBackground="White"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1"
+                        HeadersVisibility="Column"
+                        HorizontalGridLinesBrush="#E0E0E0"
+                        VerticalGridLinesBrush="#E0E0E0"
+                        GridLinesVisibility="All">
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="#FFD700" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Style>
+
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#F0F0F0" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="BorderBrush" Value="#CCCCCC" />
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Padding" Value="5"/>
+                        </Style>
+
+                    </DataGrid.Resources>
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=ProductName}" />
                         <DataGridTemplateColumn>
@@ -31,7 +62,7 @@
         </Grid>
         <Grid Grid.Row="1" HorizontalAlignment="Right">
             <DockPanel>
-                <TextBlock Text="Total Amount: " FontWeight="Bold" FontSize="20" Margin="10 10 10 10"/>
+                <TextBlock Text="Total Amount: " FontWeight="Bold" FontSize="20" Margin="10"/>
                 <TextBlock Text="{Binding SelectedReceipt.TotalAmount}" FontWeight="Bold" FontSize="20" Margin="10 10 10 10"/>
             </DockPanel>
         </Grid>

@@ -27,11 +27,38 @@
         <Grid Grid.Row="1">
             <DockPanel>
                 <DataGrid x:Name="ReceiptDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" 
-           ColumnWidth="*" ItemsSource="{Binding Receipts}" SelectedItem="{Binding SelectedReceipt}"
-           IsReadOnly="True">
+                  ColumnWidth="*" ItemsSource="{Binding Receipts}" SelectedItem="{Binding SelectedReceipt}"
+                  IsReadOnly="True"
+                  Background="White"                  
+                  RowBackground="#E0E0E0"
+                  AlternatingRowBackground="White"
+                  BorderBrush="#CCCCCC"
+                  BorderThickness="1"
+                  HeadersVisibility="Column"
+                  HorizontalGridLinesBrush="#E0E0E0"
+                  VerticalGridLinesBrush="#E0E0E0"
+                  GridLinesVisibility="All">
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="#FFD700" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Style>
+
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#F0F0F0" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="BorderBrush" Value="#CCCCCC" />
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Padding" Value="5"/>
+                        </Style>
+                        
+                    </DataGrid.Resources>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" />
-                        <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" />
+                        <DataGridTextColumn Header="Date" Binding="{Binding Path=Date,StringFormat={}{0:dd-MM-yyyy}}" />
                         <DataGridTextColumn Header="Cashier" Binding="{Binding Path=CashierName}" />
                         <DataGridTextColumn Header="Total Amount" Binding="{Binding Path=TotalAmount}" />
                         <DataGridTemplateColumn Width="Auto">

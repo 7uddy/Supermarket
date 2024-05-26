@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket.MVVM.View.CreateReceiptView"
         mc:Ignorable="d"
-        Title="CreateReceiptInsertView" Height="450" Width="800">
-    <Grid Margin="150 20 150 20">
+        Title="CreateReceiptInsertView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="400" MinWidth="700"
+        Background="#4E937A">
+    <Grid Margin="150 20 150 20" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -19,12 +22,13 @@
             <TextBlock Text="Product Insert" 
                           FontSize="30" 
                           FontWeight="ExtraBold" 
-                          HorizontalAlignment="Center"/>
+                          HorizontalAlignment="Center" 
+                       Margin="0 0 0 30"/>
         </Grid>
         <Grid Grid.Row="1" Margin="20">
             <TextBlock Text="Product ID" 
             FontSize="20" 
-            FontWeight="Bold" 
+            FontWeight="Bold"
             HorizontalAlignment="Left"/>
             <ComboBox SelectedValue="{Binding InsertProductId, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
            ItemsSource="{Binding ProductsList}"
@@ -38,17 +42,20 @@
         <Grid Grid.Row="2" Margin="20">
             <TextBlock Text="Quantity" 
                       FontSize="20" 
-                      FontWeight="Bold" 
+                      FontWeight="Bold"
                       HorizontalAlignment="Left"/>
             <TextBox Text="{Binding InsertQuantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                     FontSize="15" 
-                    FontWeight="Bold" 
+                    FontWeight="Bold"
+                    Background="#EEEEEE"
                     Width="200"
                     HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="5" Margin="20">
             <Button Content="Insert" 
       Command="{Binding AddProduct}" 
+                    Background="#90B3A6"
+                    BorderThickness="0"
       FontSize="20" 
       FontWeight="Bold" 
       Width="100"

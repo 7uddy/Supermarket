@@ -32,6 +32,23 @@
                 <DataGrid x:Name="ProducersDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" 
            ColumnWidth="*" ItemsSource="{Binding AddedProductsList}" SelectedItem="{Binding SelectedProduct}"
            IsReadOnly="True">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#FFD700" />
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                    </Style>
+
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#F0F0F0" />
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="BorderBrush" Value="#CCCCCC" />
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="Padding" Value="5"/>
+                    </Style>
+
+                    </DataGrid.Resources>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Path=ProductName}" />
                         <DataGridTextColumn Header="Quantity" Binding="{Binding Path=Quantity}" />
@@ -49,7 +66,9 @@
                                  Command="{Binding DataContext.DeleteCommand, 
                                  RelativeSource={RelativeSource AncestorType=UserControl}}" 
                                  CommandParameter="{Binding}"
-                                     Width="50"/>
+                                     Width="45"
+                                     Height="20"
+                                     Background="#A29D82" BorderThickness="0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
@@ -62,14 +81,22 @@
         <Grid Grid.Row="2">
             <Button Content="Add Product"
                      Click="AddProduct_Click"
-                     Width="200"
+                     Width="150"
+                    Height="35"
+                     Background="#493342"
+                    Foreground="White"
+                    BorderThickness="0"
                      HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="4">
             <Button Content="Create Receipt"
                      Command="{Binding CreateReceiptCommand}"
-                     Width="200"
-                     HorizontalAlignment="Center"/>
+                     Width="150"
+                    Height="35"
+                     HorizontalAlignment="Center"
+                     Background="#493342"
+                        Foreground="White"
+                        BorderThickness="0"/>
         </Grid>
         <Grid Grid.Row="3" Margin="0 50 30 0" HorizontalAlignment="Center">
             <TextBlock Text="Total Amount: " FontSize="20" FontWeight="Bold" Foreground="White"/>

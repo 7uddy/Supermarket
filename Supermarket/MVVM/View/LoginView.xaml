@@ -20,25 +20,29 @@
                      FontSize="36"
                      FontWeight="ExtraBold"
                      Foreground="AliceBlue"
-                     HorizontalAlignment="Center"/>
+                     HorizontalAlignment="Center"
+                     Margin="20"/>
         </Grid>
         <Grid Grid.Row="1">
             <TextBlock Text="Username"
                      FontSize="24"
                      FontWeight="ExtraBold"
                      Foreground="AliceBlue"
-                     HorizontalAlignment="Center"/>
+                     HorizontalAlignment="Center"
+                       Margin="5"/>
         </Grid>
         <Grid Grid.Row="2">
             <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    FontSize="24"
                    FontWeight="ExtraBold"
+                   Background="#E0E0E0"
                    HorizontalAlignment="Center"
                    Width="200"/>
         </Grid>
         <Grid Grid.Row="3">
             <TextBlock Text="Password"
                      FontSize="24"
+                       Margin="5"
                      FontWeight="ExtraBold"
                      Foreground="AliceBlue"
                      HorizontalAlignment="Center"/>
@@ -48,11 +52,16 @@
                    FontSize="24"
                    FontWeight="ExtraBold"
                    HorizontalAlignment="Center"
+                   Background="#E0E0E0"
                    Width="200"/>
         </Grid>
         <Grid Grid.Row="5">
             <Button Content="Login"
-                  FontSize="24"
+                    BorderThickness="0"
+                    Width="120"
+                    Height="40"
+                    Margin="0 20 0 0"
+                  FontSize="15"
                   FontWeight="ExtraBold"
                   HorizontalAlignment="Center"
                   Command="{Binding LoginCommand}"

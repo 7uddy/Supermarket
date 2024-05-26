@@ -321,5 +321,10 @@
   <ItemGroup>
     <Resource Include="Resources\CommercialExcess.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LogOut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
