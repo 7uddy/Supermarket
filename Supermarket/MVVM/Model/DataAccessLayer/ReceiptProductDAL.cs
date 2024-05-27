@@ -1,11 +1,7 @@
 ﻿using Supermarket.MVVM.Model.EntityLayer;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Supermarket.MVVM.Model.DataAccessLayer
 {
@@ -30,6 +26,7 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                         Quantity = reader.GetInt32(1),
                         Price = reader.GetDecimal(2)
                     };
+                    receiptProduct.Price= receiptProduct.Price / receiptProduct.Quantity;
                     receiptProducts.Add(receiptProduct);
                 }
                 reader.Close();

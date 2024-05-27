@@ -1,6 +1,5 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Windows.Markup;
 
 namespace Supermarket.MVVM.Model.DataAccessLayer
 {

@@ -1,5 +1,4 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
 using Supermarket.Commands;
 using Supermarket.MVVM.Model.BusinessLogicLayer;
 using Supermarket.MVVM.Model.EntityLayer;
@@ -8,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -105,9 +102,25 @@ namespace Supermarket.MVVM.ViewModel
             {
                 return _addProduct ?? (_addProduct = new RelayCommand(() =>
                 {
-                    decimal InsertPrice = stockBLL.GetProductPriceAndCheckStock(InsertProductId, InsertQuantity);
-                    if(InsertPrice==0 || InsertQuantity==0)
+                    ReceiptProduct backupDeletedProduct=null;
+                    if (InsertQuantity == 0)
                     {
+                        MessageBox.Show("Please insert a quantity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (_addedProductsList.Contains(_addedProductsList.Where(x => x.ProductId == InsertProductId).FirstOrDefault()))
+                    {
+                        InsertQuantity+=_addedProductsList.Where(x => x.ProductId == InsertProductId).Select(x => x.Quantity).FirstOrDefault();
+                        backupDeletedProduct = _addedProductsList.Where(x => x.ProductId == InsertProductId).FirstOrDefault();
+                        _addedProductsList.Remove(backupDeletedProduct);
+                    }
+                    decimal InsertPrice = stockBLL.GetProductPriceAndCheckStock(InsertProductId, InsertQuantity);
+                    if(InsertPrice==0)
+                    {
+                        if(backupDeletedProduct!=null)
+                        {
+                            _addedProductsList.Add(backupDeletedProduct);
+                        }
                         MessageBox.Show("There isn't enough stock for the selected product", "Error", 
                             MessageBoxButton.OK, MessageBoxImage.Error);
                         return;

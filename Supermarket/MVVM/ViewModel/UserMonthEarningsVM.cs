@@ -4,11 +4,8 @@ using Supermarket.MVVM.Model.BusinessLogicLayer;
 using Supermarket.MVVM.Model.EntityLayer;
 using Supermarket.Stores;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Supermarket.MVVM.ViewModel
@@ -85,7 +82,7 @@ namespace Supermarket.MVVM.ViewModel
             set
             {
                 _selectedReceipt = value;
-                UpdateDetails();
+                if(_selectedReceipt!=null)UpdateDetails();
                 OnPropertyChanged("SelectedReceipt");
             }
         }
@@ -104,7 +101,7 @@ namespace Supermarket.MVVM.ViewModel
         }
         public decimal TotalAmount
         {
-            get => _selectedReceiptProducts.Sum(x => x.Price);
+            get => _selectedReceiptProducts.Sum(x => x.Price * x.Quantity);
         }
 
         public Action CloseAction { get; internal set; }

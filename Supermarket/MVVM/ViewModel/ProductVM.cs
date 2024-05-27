@@ -1,13 +1,9 @@
 ﻿using Supermarket.Commands;
 using Supermarket.MVVM.Model.BusinessLogicLayer;
-using Supermarket.MVVM.Model;
 using Supermarket.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Supermarket.MVVM.Model.EntityLayer;
 using GalaSoft.MvvmLight.Command;

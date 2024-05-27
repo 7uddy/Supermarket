@@ -1,11 +1,5 @@
 ﻿using Supermarket.MVVM.Model.DataAccessLayer;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Supermarket.MVVM.Model.BusinessLogicLayer
 {

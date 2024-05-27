@@ -45,11 +45,6 @@ namespace Supermarket.MVVM.ViewModel
             set => _usersList = value;
         }
 
-        //public LoginVM()
-        //{
-        //    _usersList = userBLL.GetAllUsers();
-        //}
-
         public ICommand LoginCommand
         {
             get

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Supermarket.MVVM.Model.EntityLayer
+﻿namespace Supermarket.MVVM.Model.EntityLayer
 {
     public class Product
     {
