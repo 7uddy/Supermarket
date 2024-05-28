@@ -103,6 +103,7 @@ namespace Supermarket.MVVM.ViewModel
                 return _addProduct ?? (_addProduct = new RelayCommand(() =>
                 {
                     ReceiptProduct backupDeletedProduct=null;
+                    int backupQuantity = InsertQuantity;
                     if (InsertQuantity == 0)
                     {
                         MessageBox.Show("Please insert a quantity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -121,6 +122,7 @@ namespace Supermarket.MVVM.ViewModel
                         {
                             _addedProductsList.Add(backupDeletedProduct);
                         }
+                        InsertQuantity = backupQuantity;
                         MessageBox.Show("There isn't enough stock for the selected product", "Error", 
                             MessageBoxButton.OK, MessageBoxImage.Error);
                         return;

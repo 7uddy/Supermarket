@@ -220,6 +220,12 @@ namespace Supermarket.MVVM.ViewModel
                             return;
                         }
                         stockBLL.InsertStock(SelectedProductId, int.Parse(InsertQuantity), InsertSupplyDate, InsertExpirationDate, decimal.Parse(InsertPurchasePrice), decimal.Parse(InsertSalePrice));
+                        SelectedProductId= 0;
+                        InsertQuantity = "";
+                        InsertPurchasePrice = "";
+                        InsertSalePrice = "";
+                        InsertSupplyDate= DateTime.Today;
+                        InsertExpirationDate = DateTime.Today;
                         StockList = stockBLL.GetAllStock();
                         OnPropertyChanged("StockList");
                         CloseAction?.Invoke();

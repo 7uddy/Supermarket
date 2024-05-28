@@ -26,7 +26,7 @@ namespace Supermarket.MVVM.Model.DataAccessLayer
                         Quantity = reader.GetInt32(1),
                         Price = reader.GetDecimal(2)
                     };
-                    receiptProduct.Price= receiptProduct.Price / receiptProduct.Quantity;
+ //                 receiptProduct.Price= receiptProduct.Price / receiptProduct.Quantity;
                     receiptProducts.Add(receiptProduct);
                 }
                 reader.Close();

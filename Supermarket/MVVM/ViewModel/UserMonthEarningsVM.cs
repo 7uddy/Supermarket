@@ -101,7 +101,7 @@ namespace Supermarket.MVVM.ViewModel
         }
         public decimal TotalAmount
         {
-            get => _selectedReceiptProducts.Sum(x => x.Price * x.Quantity);
+            get => _selectedReceiptProducts.Sum(x => x.Price);
         }
 
         public Action CloseAction { get; internal set; }
